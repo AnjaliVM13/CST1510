@@ -1,0 +1,5 @@
+bcrypt
+pandas
+streamlit
+sqlite3-binary
+python-dateutil
