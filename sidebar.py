@@ -2,39 +2,47 @@ import streamlit as st
 from pathlib import Path
 import base64
 
+
 def to_base64(path):
+    """Convert file to base64 string."""
     with open(path, "rb") as f:
         return base64.b64encode(f.read()).decode()
 
-def render_sidebar():
-    """Ultra-modern Sidebar with glass UI, avatar ring, profile picture,
-    animations, and role-aware theme."""
 
-    # -------------------------------------------------------
-    # Determine user info
-    # -------------------------------------------------------
-    username = (st.session_state.get("username") or "User").title()
-    role = st.session_state.get("role", "User")
-    role = role.upper() if role else "USER"
+class Sidebar:
+    """Sidebar component with glass UI, avatar ring, profile picture, animations, and role-aware theme."""
 
+    def __init__(self):
+        """Initialize Sidebar component."""
+        self.base_dir = Path(__file__).resolve().parent.parent.parent
+        self.profile_dir = self.base_dir / "assets/profile_pics"
+        self.role_colors = {
+            "CYBER": "role-cyber",
+            "DATA": "role-data",
+            "IT": "role-it",
+            "ADMIN": "role-admin",
+        }
 
-    # Profile picture path
-    BASE_DIR = Path(__file__).resolve().parent.parent.parent
-    PROFILE_DIR = BASE_DIR / "assets/profile_pics"
-    PROFILE_PATH = PROFILE_DIR / f"{username}.png"
+    def get_user_info(self):
+        """Get user information from session state."""
+        username = (st.session_state.get("username") or "User").title()
+        role = st.session_state.get("role", "User")
+        role = role.upper() if role else "USER"
+        return username, role
 
-    if PROFILE_PATH.exists():
-        avatar_url = f"data:image/png;base64,{to_base64(PROFILE_PATH)}"
-    else:
-        avatar_url = "https://cdn-icons-png.flaticon.com/512/9131/9131529.png"
+    def get_avatar_url(self, username):
+        """Get avatar URL for user."""
+        profile_path = self.profile_dir / f"{username}.png"
 
+        if profile_path.exists():
+            return f"data:image/png;base64,{to_base64(profile_path)}"
+        else:
+            return "https://cdn-icons-png.flaticon.com/512/9131/9131529.png"
 
-
-    # -------------------------------------------------------
-    # Inject custom CSS
-    # -------------------------------------------------------
-    st.markdown(
-        f"""
+    def inject_css(self):
+        """Inject custom CSS styles."""
+        st.markdown(
+            f"""
     <style>
 
     /* --- SIDEBAR GLASS EFFECT --- */
@@ -122,20 +130,54 @@ def render_sidebar():
         font-weight: 600;
     }}
 
-    /* --- FLOATING LOGOUT BUTTON --- */
+    /* --- THEMED LOGOUT BUTTON --- */
+    .logout-btn {{
+        position: absolute; /* pin at bottom */
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        text-align: center;
+    }}
+
     .logout-btn button {{
-        background: linear-gradient(135deg, #ef4444, #dc2626);
-        color: white;
-        width: 95%;
-        font-weight: 600;
-        border-radius: 10px;
-        padding: 8px 12px;
-        margin-top: 20px;
-        margin-left: 5px;
+        background: linear-gradient(135deg, #6a5acd, #4f46e5); /* purple/blue gradient */
+        color: white !important;
+        width: 100% !important;
+        padding: 12px 0 !important;
+        border-radius: 12px !important;
+        border: none !important;
+        font-weight: 700 !important;
+        font-size: 16px;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        box-sizing: border-box !important;
+        cursor: pointer;
+        box-shadow: 0 0 15px rgba(106, 92, 173, 0.6), 0 4px 15px rgba(0,0,0,0.3);
+        transition: all 0.3s ease;
     }}
+
     .logout-btn button:hover {{
-        background: linear-gradient(135deg, #dc2626, #b91c1c);
+        background: linear-gradient(135deg, #4f46e5, #8b5cf6); /* lighter purple on hover */
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.4);
     }}
+
+    .logout-btn button:active {{
+        transform: translateY(1px);
+        box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }}
+
+
+    /* Optional: pin logout button at bottom of sidebar */
+    .logout-btn {{
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }}
+
 
     /* Link to Profile Settings */
     .profile-link:hover {{
@@ -146,15 +188,11 @@ def render_sidebar():
 
     </style>
     """,
-        unsafe_allow_html=True,
-    )
+            unsafe_allow_html=True,
+        )
 
-    # -------------------------------------------------------
-    # Sidebar UI content
-    # -------------------------------------------------------
-    with st.sidebar:
-
-        # PROFILE HEADER
+    def render_profile_section(self, username, role, avatar_url):
+        """Render profile section with avatar and role badge."""
         st.markdown("<div class='profile-box'>", unsafe_allow_html=True)
 
         # Avatar ring
@@ -170,12 +208,7 @@ def render_sidebar():
         st.markdown(f"<div class='username'>{username}</div>", unsafe_allow_html=True)
 
         # Role badge
-        role_class = {
-            "CYBER": "role-cyber",
-            "DATA": "role-data",
-            "IT": "role-it",
-            "ADMIN": "role-admin",
-        }.get(role, "role-data")
+        role_class = self.role_colors.get(role, "role-data")
 
         st.markdown(
             f"<div class='role-badge {role_class}'>🔰 {role}</div>",
@@ -183,12 +216,10 @@ def render_sidebar():
         )
 
         st.markdown("</div>", unsafe_allow_html=True)
-
         st.markdown("---")
 
-        # -------------------------------------------------------
-        # Navigation Links
-        # -------------------------------------------------------
+    def render_navigation_links(self, role):
+        """Render navigation links based on user role."""
         if role == "CYBER":
             st.page_link("pages/1_Cyber_Incidents.py", label="🔐 Cyber Incidents")
 
@@ -199,19 +230,49 @@ def render_sidebar():
             st.page_link("pages/3_IT_Tickets.py", label="🛠 IT Tickets")
 
         st.page_link("pages/4_AI_Assistant.py", label="🤖 Global AI Assistant")
-
-        # Profile settings link
         st.page_link("pages/Profile.py", label="👤 Profile Settings")
-
         st.markdown("---")
 
-        # -------------------------------------------------------
-        # Logout Button
-        # -------------------------------------------------------
-        st.markdown("<div class='logout-btn'>", unsafe_allow_html=True)
-        if st.button("Logout"):
+    def render_logout_button(self):
+        """Render logout button."""
+        with st.sidebar:
+            st.markdown(
+                """
+        <div class='logout-btn'>
+            <form action="?logout=true" method="get">
+                <button type="submit">Logout</button>
+            </form>
+        </div>
+        """,
+                unsafe_allow_html=True,
+            )
+
+    def handle_logout(self):
+        """Handle logout action."""
+        if st.query_params.get("logout"):
             st.session_state.logged_in = False
             st.session_state.username = None
             st.session_state.role = None
-            st.switch_page("pages/0_Login.py")
-        st.markdown("</div>", unsafe_allow_html=True)
+            st.experimental_rerun()
+
+    def render(self):
+        """Render the complete sidebar."""
+        username, role = self.get_user_info()
+        avatar_url = self.get_avatar_url(username)
+
+        self.inject_css()
+
+        with st.sidebar:
+            self.render_profile_section(username, role, avatar_url)
+            self.render_navigation_links(role)
+
+        self.render_logout_button()
+        self.handle_logout()
+
+
+# Backward compatibility wrapper function
+def render_sidebar():
+    """Ultra-modern Sidebar with glass UI, avatar ring, profile picture,
+    animations, and role-aware theme - backward compatibility."""
+    sidebar = Sidebar()
+    sidebar.render()
