@@ -1,6 +1,0 @@
-dataset_id,name,rows,columns,uploaded_by,upload_date
-DS001,Sales Data Q1,1500,25,admin,2024-01-15
-DS002,Customer Records,5000,12,user1,2024-01-16
-DS003,Inventory List,800,8,user2,2024-01-17
-DS004,Financial Reports,200,15,admin,2024-01-18
-DS005,Employee Database,300,20,user1,2024-01-19
