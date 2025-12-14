@@ -1,0 +1,18 @@
+[
+    {
+        "role": "user",
+        "content": "Hi there!"
+    },
+    {
+        "role": "assistant",
+        "content": "Reply to 'Hi there!'"
+    },
+    {
+        "role": "user",
+        "content": "Can you summarize the latest incidents?"
+    },
+    {
+        "role": "assistant",
+        "content": "Reply to 'Can you summarize the latest incidents?'"
+    }
+]

@@ -1,0 +1,6 @@
+ticket_id,priority,description,status,assigned_to,created_at,resolution_time_hours
+T200,High,Printer not working in office,Open,John Smith,2024-01-15 10:00:00,2.5
+T201,Medium,Email server slow,In Progress,Jane Doe,2024-01-16 14:30:00,5.0
+T202,Low,Need software license,Open,Mike Johnson,2024-01-17 09:00:00,1.0
+T203,Critical,Network outage in building A,Open,Sarah Williams,2024-01-18 08:00:00,12.0
+T204,High,Password reset request,Resolved,Tom Brown,2024-01-19 11:30:00,0.5

@@ -1,0 +1,74 @@
+[
+    {
+        "role": "user",
+        "content": "Hello"
+    },
+    {
+        "role": "assistant",
+        "content": "⚠️ **API Quota Exceeded**\n\nYou've reached the free tier limit for Gemini API.\n\n**Quick Solutions (in order):**\n1. **Minimal Mode** is now enabled (reduces usage by 60-80%, still answers database questions) ⭐\n2. **Wait ~45 seconds** and try again\n3. **Upgrade** your API plan at https://ai.google.dev/pricing\n4. **Check usage** at https://ai.dev/usage\n\n\n\n✅ **Minimal Mode is already enabled.**\n💡 **Minimal Mode** sends database structure (columns, types, samples) so AI can still answer your database questions while using 60-80% fewer tokens!"
+    },
+    {
+        "role": "user",
+        "content": "what is the first incident_id?"
+    },
+    {
+        "role": "assistant",
+        "content": "⚠️ **API Quota Exceeded**\n\nYou've reached the free tier limit for Gemini API.\n\n**Quick Solutions (in order):**\n1. **Minimal Mode** is now enabled (reduces usage by 60-80%, still answers database questions) ⭐\n2. **Wait ~21 seconds** and try again\n3. **Upgrade** your API plan at https://ai.google.dev/pricing\n4. **Check usage** at https://ai.dev/usage\n\n\n\n✅ **Minimal Mode is already enabled.**\n💡 **Minimal Mode** sends database structure (columns, types, samples) so AI can still answer your database questions while using 60-80% fewer tokens!"
+    },
+    {
+        "role": "user",
+        "content": "hello"
+    },
+    {
+        "role": "assistant",
+        "content": "⚠️ **API Quota Exceeded**\n\nYou've reached the free tier limit for Gemini API.\n\n**Quick Solutions (in order):**\n1. **Minimal Mode** is now enabled (reduces usage by 60-80%, still answers database questions) ⭐\n2. **Wait ~10 seconds** and try again\n3. **Upgrade** your API plan at https://ai.google.dev/pricing\n4. **Check usage** at https://ai.dev/usage\n\n\n\n✅ **Minimal Mode is already enabled.**\n💡 **Minimal Mode** sends database structure (columns, types, samples) so AI can still answer your database questions while using 60-80% fewer tokens!"
+    },
+    {
+        "role": "user",
+        "content": "hi"
+    },
+    {
+        "role": "assistant",
+        "content": "⚠️ **API Quota Exceeded**\n\nYou've reached the free tier limit for Gemini API.\n\n**Quick Solutions (in order):**\n1. **Minimal Mode** is now enabled (reduces usage by 60-80%, still answers database questions) ⭐\n2. **Wait ~376 seconds** and try again\n3. **Upgrade** your API plan at https://ai.google.dev/pricing\n4. **Check usage** at https://ai.dev/usage\n\n\n\n✅ **Minimal Mode is already enabled.**\n💡 **Minimal Mode** sends database structure (columns, types, samples) so AI can still answer your database questions while using 60-80% fewer tokens!"
+    },
+    {
+        "role": "user",
+        "content": "hello"
+    },
+    {
+        "role": "assistant",
+        "content": "⚠️ **API Quota Exceeded**\n\nYou've reached the free tier limit for Gemini API.\n\n**Quick Solutions (in order):**\n1. **Minimal Mode** is now enabled (reduces usage by 60-80%, still answers database questions) ⭐\n2. **Wait ~4 seconds** and try again\n3. **Upgrade** your API plan at https://ai.google.dev/pricing\n4. **Check usage** at https://ai.dev/usage\n\n\n\n✅ **Minimal Mode is already enabled.**\n💡 **Minimal Mode** sends database structure (columns, types, samples) so AI can still answer your database questions while using 60-80% fewer tokens!"
+    },
+    {
+        "role": "user",
+        "content": "hello"
+    },
+    {
+        "role": "assistant",
+        "content": "⚠️ **API Quota Exceeded**\n\nYou've reached the free tier limit for Gemini API.\n\n**Quick Solutions (in order):**\n1. **Minimal Mode** is now enabled (reduces usage by 60-80%, still answers database questions) ⭐\n2. **Wait ~56 seconds** and try again\n3. **Upgrade** your API plan at https://ai.google.dev/pricing\n4. **Check usage** at https://ai.dev/usage\n\n\n\n✅ **Minimal Mode is already enabled.**\n💡 **Minimal Mode** sends database structure (columns, types, samples) so AI can still answer your database questions while using 60-80% fewer tokens!"
+    },
+    {
+        "role": "user",
+        "content": "hi"
+    },
+    {
+        "role": "assistant",
+        "content": "⚠️ **API Quota Exceeded**\n\nYou've reached the free tier limit for Gemini API.\n\n**Quick Solutions (in order):**\n1. **Minimal Mode** is now enabled (reduces usage by 60-80%, still answers database questions) ⭐\n2. **Wait ~12 seconds** and try again\n3. **Upgrade** your API plan at https://ai.google.dev/pricing\n4. **Check usage** at https://ai.dev/usage\n\n\n\n✅ **Minimal Mode is already enabled.**\n💡 **Minimal Mode** sends database structure (columns, types, samples) so AI can still answer your database questions while using 60-80% fewer tokens!"
+    },
+    {
+        "role": "user",
+        "content": "hello"
+    },
+    {
+        "role": "assistant",
+        "content": "⚠️ **API Key Error**: 400 API key expired. Please renew the API key. [reason: \"API_KEY_INVALID\"\ndomain: \"googleapis.com\"\nmetadata {\n  key: \"service\"\n  value: \"generativelanguage.googleapis.com\"\n}\n, locale: \"en-US\"\nmessage: \"API key expired. Please renew the API key.\"\n]\n\nPlease check:\n1. Your API key in `.streamlit/secrets.toml` is correct\n2. You restarted the Streamlit app after changing the key\n3. The API key is valid at https://aistudio.google.com/apikey"
+    },
+    {
+        "role": "user",
+        "content": "what is incident id number 1"
+    },
+    {
+        "role": "assistant",
+        "content": "⚠️ **API Quota Exceeded**\n\nYou've reached the free tier limit for Gemini API.\n\n**Quick Solutions (in order):**\n1. **Minimal Mode** is now enabled (reduces usage by 60-80%, still answers database questions) ⭐\n2. **Wait ~1 seconds** and try again\n3. **Upgrade** your API plan at https://ai.google.dev/pricing\n4. **Check usage** at https://ai.dev/usage\n\n\n\n✅ **Minimal Mode is already enabled.**\n💡 **Minimal Mode** sends database structure (columns, types, samples) so AI can still answer your database questions while using 60-80% fewer tokens!"
+    }
+]

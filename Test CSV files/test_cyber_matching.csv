@@ -1,0 +1,2 @@
+incident_id,timestamp,severity,category,status,description
+INC001,2024-01-15 10:00:00,High,Malware,Open,Test
